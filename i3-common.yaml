@@ -1,6 +1,6 @@
 components:
   schemas:
-    metadata:
+    Metadata:
       type: object
       required:
         - versions
