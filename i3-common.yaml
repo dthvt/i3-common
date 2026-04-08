@@ -123,3 +123,17 @@ components:
         signature:
           type: string
           format: byte
+
+Metadata:
+  get:
+    tags:
+      - RetrieveMetadata
+    summary: Retrives service metadata.
+    operationId: RetrieveMetadata
+    responses:
+      '200':
+        description: Metadata Found
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Metadata'
