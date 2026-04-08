@@ -1,5 +1,71 @@
 components:
   schemas:
+    Metadata:
+      type: object
+      required:
+        - versions
+      properties:
+        major:
+          type: integer
+          format: int32
+          description: Version major number
+        minor:
+          type: integer
+          format: int32
+          description: Version minor number
+        patch:
+          type: integer
+          format: int32
+          description: Version patch number
+        serviceOptionsArray:
+          type: array
+          items:
+            type: object
+            required:
+              - namespace
+              - key
+              - value
+            properties:
+              namespace:
+                type: string
+                description: Namespace identifier for the option
+              key:
+                type: string
+                description: Key identifying the option
+              value:
+                type: string
+                description: Value of the option
+        versions:
+          type: array
+          items:
+            type: object
+            required:
+              - major
+              - minor
+            properties:
+              major:
+                type: integer
+                format: int32
+                description: Version major number
+              minor:
+                type: integer
+                format: int32
+                description: Version minor number
+              vendor:
+                type: string
+                description: Vendor extension of the version
+              serviceInfo:
+                type: object
+                properties:
+                  requiredAlgorithms:
+                    type: array
+                    items:
+                      type: string
+                      enum: [EdDSA, none]
+                    description: alg Header Parameter Values for JWS
+        fingerprint:
+          type: string
+          description: Vendor info
     VersionsArray:
       type: object
       required:
